@@ -1,7 +1,3 @@
-// Windows.h strict mode
-#define STRICT
-#define UNICODE
-
 #include "napi.h"
 #include "uv.h"
 
@@ -10,6 +6,8 @@
 
 #include <cstdio>
 #include <memory>
+
+typedef BOOL(WINAPI *LPFN_ISWOW64PROCESS2)(HANDLE, PUSHORT, PUSHORT);
 
 using namespace Napi;
 
@@ -23,7 +21,7 @@ namespace
     USHORT nativeMachine = 0;
 
     LPFN_ISWOW64PROCESS2 fnIsWow64Process2 = (LPFN_ISWOW64PROCESS2)GetProcAddress(
-        GetModuleHandle(L"kernel32"), "IsWow64Process2");
+        GetModuleHandle("kernel32"), "IsWow64Process2");
 
     if (fnIsWow64Process2 != NULL)
     {
