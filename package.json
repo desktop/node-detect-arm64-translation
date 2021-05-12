@@ -1,0 +1,58 @@
+{
+  "name": "detect-arm64-translation",
+  "version": "1.0.0",
+  "description": "A simple library to detect ARM64 translation on Windows",
+  "main": "dist/lib/index.js",
+  "typings": "dist/lib/index.d.ts",
+  "scripts": {
+    "install": "prebuild-install || node-gyp rebuild",
+    "build": "tsc",
+    "pretest": "yarn build",
+    "test": "jest -c jest.json",
+    "prepublishOnly": "yarn build && yarn test",
+    "postpublish": "git push --follow-tags",
+    "prettier": "yarn prettier --write",
+    "check-prettier": "prettier --check \"./**/*.{ts,tsx,js,json,jsx,scss,html,yaml,yml}\"",
+    "prebuild-napi-x64": "prebuild -t 3 -r napi -a x64 --strip",
+    "prebuild-napi-ia32": "prebuild -t 3 -r napi -a ia32 --strip",
+    "prebuild-napi-arm64": "prebuild -t 3 -r napi -a arm64 --strip",
+    "prebuild-all": "yarn prebuild-napi-x64 && yarn prebuild-napi-ia32 && yarn prebuild-napi-arm64",
+    "upload": "node ./script/upload.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desktop/detect-arm64-translation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/desktop/detect-arm64-translation/issues"
+  },
+  "homepage": "https://github.com/desktop/detect-arm64-translation#readme",
+  "devDependencies": {
+    "@types/benchmark": "^1.0.31",
+    "@types/jest": "^26.0.13",
+    "@types/node": "^12.0.0",
+    "benchmark": "^2.1.4",
+    "jest": "^26.4.2",
+    "node-abi": "^2.21.0",
+    "prebuild": "^10.0.1",
+    "prettier": "^2.0.5",
+    "ts-node": "^9.0.0",
+    "typescript": "^3.9.0"
+  },
+  "dependencies": {
+    "node-addon-api": "^3.1.0",
+    "prebuild-install": "^5.3.5"
+  },
+  "binary": {
+    "napi_versions": [
+      3
+    ]
+  },
+  "config": {
+    "runtime": "napi",
+    "target": 3
+  }
+}
