@@ -8,7 +8,7 @@
     "install": "prebuild-install || node-gyp rebuild",
     "build": "tsc",
     "pretest": "yarn build",
-    "test": "jest -c jest.json",
+    "test": "jest --passWithNoTests -c jest.json",
     "prepublishOnly": "yarn build && yarn test",
     "postpublish": "git push --follow-tags",
     "prettier": "yarn prettier --write",
