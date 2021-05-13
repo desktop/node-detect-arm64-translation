@@ -1,6 +1,6 @@
 {
   "name": "detect-arm64-translation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple library to detect ARM64 translation on Windows",
   "main": "dist/lib/index.js",
   "typings": "dist/lib/index.d.ts",
