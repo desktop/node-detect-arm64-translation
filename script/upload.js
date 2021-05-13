@@ -28,7 +28,7 @@ function upload (opts, cb) {
   var auth = { user: 'x-oauth', token: opts.upload }
   var tag = \`\${tagPrefix}\${pkg.version}\`
 
-  console.error("before create", tag)
+  console.error("before create", user, repo, tag)
   gh.create(auth, user, repo, { tag_name: tag }, function (e, r) {
     console.error("after create", tag, e, r)
     gh.getByTag(auth, user, repo, tag, function (err, release) {
