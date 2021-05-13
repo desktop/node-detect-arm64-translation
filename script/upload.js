@@ -59,12 +59,9 @@ module.exports = upload
 `
 
 writeFileSync(
-path.join(
-  __dirname,
-  '../node_modules/prebuild/upload.js'
-),
-newPrebuild)
-
+  path.join(__dirname, '../node_modules/prebuild/upload.js'),
+  newPrebuild
+)
 
 spawnSync(
   path.join(
