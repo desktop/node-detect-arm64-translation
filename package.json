@@ -5,8 +5,8 @@
   "main": "dist/lib/index.js",
   "typings": "dist/lib/index.d.ts",
   "scripts": {
-    "install": "prebuild-install || node-gyp rebuild",
-    "build": "tsc",
+    "install": "prebuild-install || npm run build",
+    "build": "tsc && node-gyp rebuild",
     "pretest": "yarn build",
     "test": "jest --passWithNoTests -c jest.json",
     "prepublishOnly": "yarn build && yarn test",
