@@ -3,6 +3,8 @@ const nativeModule =
     ? require('../../build/Release/detect-arm64-translation.node')
     : null
 
-export function isRunningUnderARM64Translation(): boolean {
-  return nativeModule.isRunningUnderARM64Translation()
+export function isRunningUnderARM64Translation(): boolean | undefined {
+  return nativeModule !== null
+    ? nativeModule.isRunningUnderARM64Translation()
+    : undefined
 }
