@@ -21,15 +21,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/desktop/detect-arm64-translation.git"
+    "url": "git+https://github.com/desktop/node-detect-arm64-translation.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/desktop/detect-arm64-translation/issues"
+    "url": "https://github.com/desktop/node-detect-arm64-translation/issues"
   },
-  "homepage": "https://github.com/desktop/detect-arm64-translation#readme",
+  "homepage": "https://github.com/desktop/node-detect-arm64-translation#readme",
   "devDependencies": {
     "@types/benchmark": "^1.0.31",
     "@types/jest": "^26.0.13",
