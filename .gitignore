@@ -57,8 +57,5 @@ typings/
 # dotenv environment variables file
 .env
 
-# generated TS files
-dist/
-
 # prebuild native modules for publishing
 prebuilds/

@@ -6,7 +6,6 @@
   "typings": "dist/lib/index.d.ts",
   "scripts": {
     "install": "prebuild-install || node-gyp rebuild",
-    "postinstall": "npm run build",
     "build": "tsc",
     "pretest": "yarn build",
     "test": "jest --passWithNoTests -c jest.json",
