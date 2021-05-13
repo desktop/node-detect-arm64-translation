@@ -1,12 +1,13 @@
 {
   "name": "detect-arm64-translation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple library to detect ARM64 translation on Windows",
   "main": "dist/lib/index.js",
   "typings": "dist/lib/index.d.ts",
   "scripts": {
-    "install": "prebuild-install || npm run build",
-    "build": "tsc && node-gyp rebuild",
+    "install": "prebuild-install || node-gyp rebuild",
+    "postinstall": "npm run build",
+    "build": "tsc",
     "pretest": "yarn build",
     "test": "jest --passWithNoTests -c jest.json",
     "prepublishOnly": "yarn build && yarn test",
