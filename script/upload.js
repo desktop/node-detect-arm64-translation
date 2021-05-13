@@ -28,11 +28,11 @@ function upload (opts, cb) {
   var auth = { user: 'x-oauth', token: opts.upload }
   var tag = \`\${tagPrefix}\${pkg.version}\`
 
-  console.error("before create")
-  gh.create(auth, user, repo, { tag_name: tag }, function () {
-    console.error("after create")
+  console.error("before create", tag)
+  gh.create(auth, user, repo, { tag_name: tag }, function (e, r) {
+    console.error("after create", tag, e, r)
     gh.getByTag(auth, user, repo, tag, function (err, release) {
-      console.error("after getbytag")
+      console.error("after getbytag", tag, err, release)
       if (err) return cb(err)
 
       var assets = release.assets.map(function (asset) {
