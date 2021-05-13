@@ -28,11 +28,11 @@ namespace
       if (!fnIsWow64Process2(GetCurrentProcess(), &processMachine,
                              &nativeMachine))
       {
-        return Napi::Number::New(env, false);
+        return Napi::Boolean::New(env, false);
       }
     }
 
-    return Napi::Number::New(env, nativeMachine == 0xaa64);
+    return Napi::Boolean::New(env, nativeMachine == 0xaa64);
   }
 
   Napi::Object Init(Napi::Env env, Napi::Object exports)
